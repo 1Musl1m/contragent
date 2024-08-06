@@ -1,5 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DefaultLayout from '@/layouts/Default.vue'
+import Summary from '@/views/dashboard/Summary.vue'
+import Arbitration from '@/components/view/contragent/dashboard/Arbitration.vue'
+import Finance from '@/components/view/contragent/dashboard/Finance.vue'
+import Communications from '@/components/view/contragent/dashboard/Communications.vue'
+import Trademarks from '@/components/view/contragent/dashboard/Trademarks.vue'
+import Founders from '@/components/view/contragent/dashboard/Founders.vue'
+import Debts from '@/components/view/contragent/dashboard/Debts.vue'
+import Sanctions from '@/components/view/contragent/dashboard/Sanctions.vue'
+import Leasing from '@/components/view/contragent/dashboard/Leasing.vue'
 
 const routes = [
   {
@@ -7,55 +16,52 @@ const routes = [
     component: DefaultLayout,
     children: [
       {
-        path: '/dashboard/summary',
+        path: 'dashboard/summary',
         name: 'summary',
-        component: () => import('@/views/dashboard/Summary.vue')
-      },
-      {
-        path: '/dashboard/arbitration',
-        name: 'arbitration',
-        component: () => import('@/views/dashboard/Arbitration.vue')
-      },
-      {
-        path: '/dashboard/finance',
-        name: 'finance',
-        component: () => import('@/views/dashboard/Finance.vue')
-      },
-      {
-        path: '/dashboard/communications',
-        name: 'communications',
-        component: () => import('@/views/dashboard/Communications.vue')
-      },
-      {
-        path: '/dashboard/trademarks',
-        name: 'trademarks',
-        component: () => import('@/views/dashboard/Trademarks.vue')
-      },
-      {
-        path: '/dashboard/founders',
-        name: 'founders',
-        component: () => import('@/views/dashboard/Founders.vue')
-      },
-      {
-        path: '/dashboard/reliability',
-        name: 'reliability',
-        component: () => import('@/views/dashboard/Reliability.vue')
-      },
-      {
-        path: '/dashboard/debts',
-        name: 'debts',
-        component: () => import('@/views/dashboard/Debts.vue')
-      },
-      {
-        path: '/dashboard/sanctions',
-        name: 'sanctions',
-        component: () => import('@/views/dashboard/Sanctions.vue')
-      },
-      {
-        path: '/dashboard/leasing',
-        name: 'leasing',
-        component: () => import('@/views/dashboard/Leasing.vue')
-      },
+        component: Summary,
+        children: [
+          {
+            path: 'arbitration',
+            name: 'arbitration',
+            component: Arbitration
+          },
+          {
+            path: 'finance',
+            name: 'finance',
+            component: Finance
+          },
+          {
+            path: 'communications',
+            name: 'communications',
+            component: Communications
+          },
+          {
+            path: 'trademarks',
+            name: 'trademarks',
+            component: Trademarks
+          },
+          {
+            path: 'founders',
+            name: 'founders',
+            component: Founders
+          },
+          {
+            path: 'debts',
+            name: 'debts',
+            component: Debts
+          },
+          {
+            path: 'sanctions',
+            name: 'sanctions',
+            component: Sanctions
+          },
+          {
+            path: 'leasing',
+            name: 'leasing',
+            component: Leasing
+          }
+        ]
+      }
     ]
   },
   {
@@ -63,6 +69,11 @@ const routes = [
     name: 'home',
     component: () => import('@/views/HomeView.vue')
   },
+  {
+    path: '/auth',
+    name: 'auth',
+    component: () => import('@/views/AuthView.vue')
+  }
 ]
 
 const router = createRouter({

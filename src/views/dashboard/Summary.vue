@@ -1,5 +1,6 @@
 <template>
   <div class="pb-10">
+    <RouterView/>
     <div class="grid grid-cols-4 gap-4">
       <FirstColumn />
       <SecondaruColumn />

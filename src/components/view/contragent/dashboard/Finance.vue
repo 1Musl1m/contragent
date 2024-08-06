@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Analys from '../../components/view/contragent/finance/Analys.vue'
+import Analys from '@/components/view/contragent/finance/Analys.vue'
 
 export default {
   components: {
